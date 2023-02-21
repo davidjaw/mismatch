@@ -14,14 +14,14 @@ def sum_a2b(a, b, g_list, g_size, random_index):
 
 
 def get_distribution_description(name, dis):
-    return f'{name} ($\mu=${dis.mean():.3f}, $\sigma=${dis.std() * 300:.3f}%)'
+    return '%s ($\\mu$=%.3f, $\\sigma$=%.3f%%)' % (name, dis.mean(), dis.std() * 300)
 
 
 def main(args):
     np.random.seed(9527 + 7)
 
     level = 16
-    # 讀取參數
+    # Read parameters
     mu, sigma, size = 1, args.g_sigma, args.g_size
 
     gaussian_list = [np.random.normal(mu, sigma / 3, size) for _ in range(level)]
@@ -89,11 +89,11 @@ def main(args):
     fig = plt.figure()
     axs = [fig.add_subplot(3, 1, i + 1) for i in range(3)]
     axs[0].hist(total_max, bins=100)
-    axs[0].set_title(f'total maximum ($\mu$={total_max.mean():.3f}, $\sigma$={total_max.std() * 300:.3f}%)')
+    axs[0].set_title('total maximum ($\\mu$=%.3f, $\\sigma$=%.3f%%)' % (total_max.mean(), total_max.std() * 300))
     axs[1].hist(total_min, bins=100)
-    axs[1].set_title(f'total minimum ($\mu$={total_min.mean():.3f}, $\sigma$={total_min.std() * 300:.3f}%)')
+    axs[1].set_title('total minimum ($\\mu$=%.3f, $\\sigma$=%.3f%%)' % (total_min.mean(), total_min.std() * 300))
     axs[2].hist(total_mismatch, bins=100)
-    axs[2].set_title(f'total mismatch ($\mu$={total_mismatch.mean():.3f}, $\sigma$={total_mismatch.std() * 300:.3f}%)')
+    axs[2].set_title('total mismatch ($\\mu$=%.3f, $\\sigma$=%.3f%%)' % (total_mismatch.mean(), total_mismatch.std() * 300))
     fig.tight_layout()
     fig.savefig('total_mismatch.png', dpi=300)
 
