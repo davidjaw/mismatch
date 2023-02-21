@@ -110,13 +110,10 @@ def main(args):
     figure_max = fig.Figure()
     axes_max = ax.Axes(figure_max, [0, 0, 1, 1])
     figure_max.add_axes(axes_max)
-
     # plot the total maximum histogram
     axes_max.hist(total_max, bins=100)
-
     # add a title to the figure
     axes_max.set_title(f'total maximum ($\mu$={total_max.mean():.3f}, $\sigma$={total_max.std() * 300:.3f}%)')
-
     # save the plot to a file
     figure_max.savefig('total_max_histogram.png')
 
@@ -124,13 +121,10 @@ def main(args):
     figure_min = fig.Figure()
     axes_min = ax.Axes(figure_min, [0, 0, 1, 1])
     figure_min.add_axes(axes_min)
-
     # plot the total minimum histogram
     axes_min.hist(total_min, bins=100)
-
     # add a title to the figure
     axes_min.set_title(f'total minimum ($\mu$={total_min.mean():.3f}, $\sigma$={total_min.std() * 300:.3f}%)')
-
     # save the plot to a file
     figure_min.savefig('total_min_histogram.png')
 
@@ -138,13 +132,10 @@ def main(args):
     figure_mismatch = fig.Figure()
     axes_mismatch = ax.Axes(figure_mismatch, [0, 0, 1, 1])
     figure_mismatch.add_axes(axes_mismatch)
-
     # plot the total mismatch histogram
     axes_mismatch.hist(total_mismatch, bins=100)
-
     # add a title to the figure
     axes_mismatch.set_title(f'total mismatch ($\mu$={total_mismatch.mean():.3f}, $\sigma$={total_mismatch.std() * 300:.3f}%)')
-
     # save the plot to a file
     figure_mismatch.savefig('total_mismatch_histogram.png')
 
